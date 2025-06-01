@@ -8,13 +8,11 @@ import { Animated, Easing, ScrollView, StyleSheet, Text, View } from 'react-nati
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function YAxisIndicator() {
-  // Value original: de -45 a +45
   const animatedAngle = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Accelerometer.setUpdateInterval(100);
     const sub = Accelerometer.addListener(({ y }) => {
-      // mapeia y de [-1, +1] para [-45, +45]
       const targetDeg = y * 45;
       Animated.timing(animatedAngle, {
         toValue: targetDeg,
@@ -26,8 +24,6 @@ export function YAxisIndicator() {
     return () => sub.remove();
   }, []);
 
-  // Agora interpolamos [-45, +45] → ['0deg', '90deg']
-  // Isso faz y = -1 → 0°, y = 0 → 45°, y = +1 → 90°
   const rotation = animatedAngle.interpolate({
     inputRange: [-45, 45],
     outputRange: ['-90deg', '90deg'],

@@ -19,10 +19,11 @@ export const ThemedButton = ({ children, ...rest }: ThemedButtonProps) => {
 
 const styles = StyleSheet.create({
     botao: {
-        borderRadius: 10,
-        backgroundColor: 'red',
+        borderRadius: 12,
+        backgroundColor: '#6FACDD',
         alignItems: 'center',
-        padding: 8,
+        paddingHorizontal: 8,
+        paddingVertical: 12
 
     },
     texto: {
