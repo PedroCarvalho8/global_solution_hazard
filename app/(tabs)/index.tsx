@@ -205,7 +205,6 @@ const styles = StyleSheet.create({
     color: '#4A90E2',
   },
   noDataContainer: {
-    flex: 1,
     gap: 16,
     paddingVertical: 24,
   },
