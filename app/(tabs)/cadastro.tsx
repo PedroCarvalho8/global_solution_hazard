@@ -6,7 +6,7 @@ import { useData } from '@/contexts/DataContext';
 import * as Haptics from 'expo-haptics';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 type messageType = {
@@ -109,6 +109,7 @@ export default function CadastroScreen() {
     }
 
     return (
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <SafeAreaView style={styles.mainContainer}>
                 <Section title='Cadastrar dados ambientais'>
                     <ThemedTextInput value={pressao?.toString()} onChangeText={(text) => {handlePressaoChange(text)}} placeholder='Pressão em Pa' keyboardType='numeric' title='Pressão do solo'/>
@@ -134,8 +135,8 @@ export default function CadastroScreen() {
                     <Text style={msg.type == 'success' ? styles.successText : styles.errorText}>{msg.message}</Text>
                     <ThemedButton disabled={loadingLocation} onPress={cadastrarDados}>Cadastrar dado</ThemedButton>
                 </Section>
-                
             </SafeAreaView>
+        </TouchableWithoutFeedback>
     );
 }
 
