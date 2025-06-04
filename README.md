@@ -41,9 +41,3 @@ O app contempla 5 telas principais:
 | Fernando Magalhães Perezine de Souza           | 98010    |
 | Kauan Dintof Lopes           | 551733    |
 
-
----
-
-## 🎥 Demonstração
-
-> Link do vídeo demonstrativo do aplicativo em funcionamento (inserir aqui)
