@@ -1,50 +1,49 @@
-# Welcome to your Expo app 👋
+# 📱 Hazard
+Projeto Mobile de Monitoramento de Riscos de Deslizamentos
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
 
-## Get started
+## 🚀 Descrição do Projeto
 
-1. Install dependencies
+Este projeto consiste no desenvolvimento de um aplicativo mobile utilizando **React Native** que simula uma rede de sensores inteligentes para monitoramento de riscos de deslizamentos, inspirado por iniciativas como o Alerta Rio e os Early Warning Systems.
 
-   ```bash
-   npm install
-   ```
+O aplicativo tem como objetivo:  
+- Monitorar indicadores ambientais como umidade do solo e inclinação do terreno  
+- Prever riscos de deslizamentos  
+- Emitir alertas para áreas vulneráveis  
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🖥️ Funcionalidades Principais
 
-In the output, you'll find options to open the app in a
+O app contempla 5 telas principais:  
+1. 🏠 **Tela de Boas-vindas**  
+2. 📊 **Tela de Inserção de Dados Ambientais**  
+3. ⚠️ **Tela de Visualização de Riscos**  
+4. 📜 **Tela de Histórico de Monitoramento**  
+5. 🛡️ **Tela de Ações de Mitigação**  
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 💾 Tecnologias e Implementação
 
-## Get a fresh project
+- **Framework:** Expo  
+- **Armazenamento Local:** AsyncStorage para registro e consulta dos dados  
+- Foco em uma solução simples, prática e de alto impacto social  
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## 👥 Integrantes
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+| Nome Completo           | RM       |
+|------------------------|----------|
+| Pedro Henrique Pinheiro Carvalho          | 551918    |
+| Fernando Magalhães Perezine de Souza           | 98010    |
+| Kauan Dintof Lopes           | 551733    |
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+---
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 🎥 Demonstração
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+> Link do vídeo demonstrativo do aplicativo em funcionamento (inserir aqui)
