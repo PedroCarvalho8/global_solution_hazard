@@ -7,7 +7,7 @@ export type ThemedButtonProps = TouchableOpacityProps & {
 export const ThemedButton = ({ children, ...rest }: ThemedButtonProps) => {
     return (
         <TouchableOpacity 
-        style={styles.botao}
+        style={[styles.botao , rest.disabled?styles.disabled:{}]}
         {...rest}
         >
             <Text style={styles.texto}>
@@ -30,5 +30,8 @@ const styles = StyleSheet.create({
         fontFamily: 'System',
         fontWeight: '600',
         color: 'white'
+    },
+    disabled: {
+        backgroundColor: 'gray'
     }
 })

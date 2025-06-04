@@ -3,31 +3,29 @@ import { StyleSheet, Text, View } from "react-native";
 
 
 
-type Variant = 'success' | 'alert' | 'warning';
+type Variant = 'seguro' | 'alerta' | 'cuidado';
 
 interface BadgeProps {
   variant?: Variant;
   label: string;
 }
 
-
-
-export const Badge = ({ variant = 'alert', label }: BadgeProps) => {
+export const Badge = ({ variant = 'alerta', label }: BadgeProps) => {
     const iconOptions = {
         size:16, color:styles[variant].color, strokeWidth:2.4
     }
     return (
         <View style={[
             styles.container, 
-            variant=='alert' && styles.alert,
-            variant=='success' && styles.success,
-            variant=='warning' && styles.warning
+            variant=='alerta' && styles.alert,
+            variant=='seguro' && styles.success,
+            variant=='cuidado' && styles.warning
         ]}>
-            {variant=='warning' && 
+            {variant=='cuidado' && 
             <TriangleAlert {...iconOptions}/>}
-            {variant=='success' && 
+            {variant=='seguro' && 
             <ShieldCheck {...iconOptions}/>}
-            {variant=='alert' && 
+            {variant=='alerta' && 
             <Siren {...iconOptions}/>}
             <Text style={{color: styles[variant].color, fontWeight: '500'}}>
                 {label}

@@ -20,8 +20,10 @@ const styles = StyleSheet.create({
         gap: 6
     },
     inputField: {
-        backgroundColor: 'rgb(246, 246, 255)',
-        borderRadius: 20,
+        backgroundColor: 'rgb(248, 248, 250)',
+        borderColor: 'rgb(226, 226, 233)',
+        borderWidth: 1,
+        borderRadius: 12,
     },
     textInput: {
         paddingLeft: 12,

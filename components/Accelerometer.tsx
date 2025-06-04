@@ -3,7 +3,7 @@ import { CircleSlash2 } from 'lucide-react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, Text, View } from 'react-native';
 
-export function YAxisIndicator() {
+export function YAxisIndicator({ atualizarInclinacao }) {
   const animatedAngle = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -28,15 +28,15 @@ export function YAxisIndicator() {
   return (
     <View style={styles.mainContainer}>
         <Animated.View style={[styles.iconWrapper, { transform: [{rotate: '45deg'},{ rotate: rotation }] }]}>
-          <CircleSlash2 size={80} color="#333" />
+          <CircleSlash2 size={80} color="#6FACDD" />
         </Animated.View>
-        <AccelerometerExample />
+        <AccelerometerComponent atualizarInclinacao={atualizarInclinacao}/>
     </View>
     
   );
 }
 
-export function AccelerometerExample() {
+export function AccelerometerComponent({ atualizarInclinacao }) {
   const [data, setData] = useState({ x: 0, y: 0, z: 0 });
   const [interval, setInterval] = useState(1000); // em ms
 
@@ -45,6 +45,7 @@ export function AccelerometerExample() {
 
     const subscription = Accelerometer.addListener(accelerometerData => {
       setData(accelerometerData);
+      atualizarInclinacao(Math.abs(parseFloat((accelerometerData.y*90).toFixed(2))))
     });
 
     return () => subscription.remove();

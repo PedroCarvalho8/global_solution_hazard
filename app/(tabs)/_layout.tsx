@@ -60,9 +60,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="alertas"
+        name="mitigacao"
         options={{
-          title: 'Alertas',
+          title: 'Ações de mitigação',
           tabBarIcon: ({ color }) => <ShieldAlert size={28} color={color} />,
         }}
       />
