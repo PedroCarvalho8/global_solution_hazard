@@ -5,7 +5,7 @@ import Section from "@/components/ui/Section";
 import { useData } from "@/contexts/DataContext";
 import { detectarRiscos } from "@/utils/utils";
 import { useRouter } from "expo-router";
-import { Calendar, Clock, RectangleEllipsis, TriangleRight, Weight } from "lucide-react-native";
+import { Calendar, Clock, Droplet, RectangleEllipsis, TriangleRight } from "lucide-react-native";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -60,9 +60,9 @@ export default function HomeScreen() {
                 >
                   <View style={styles.innerCard}>
                     <View style={styles.info}>
-                      <Weight size={16} color="#4A90E2" />
-                      <Text style={styles.cardTitle}>Pressão:</Text>
-                      <Text>{item.pressao} Pa</Text>
+                      <Droplet size={16} color="#4A90E2" />
+                      <Text style={styles.cardTitle}>Umidade:</Text>
+                      <Text>{item.umidade} g/m³</Text>
                     </View>
                     <View style={styles.info}>
                       <TriangleRight size={16} color="#4A90E2" />

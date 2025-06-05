@@ -43,8 +43,8 @@ export default function AnoScreen() {
               >
                 <View style={styles.info}>
                   <Weight size={16} color="#4A90E2" />
-                  <Text style={styles.cardTitle}>Pressão:</Text>
-                  <Text>{item.pressao} Pa</Text>
+                  <Text style={styles.cardTitle}>Umidade:</Text>
+                  <Text>{item.umidade} Pa</Text>
                 </View>
                 <View style={styles.info}>
                   <TriangleRight size={16} color="#4A90E2" />

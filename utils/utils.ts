@@ -73,7 +73,7 @@ export function calcularDistanciaEmMetros(
 
 type ItemComTimestamp = {
   timestamp: string | number | Date;
-  pressao
+  umidade
   anotacao
   inclinacao
 };
@@ -127,23 +127,23 @@ function calcularFatorDeRisco(grupo: Data[]): {
   nivel: 'seguro' | 'cuidado' | 'alerta',
   justificativa: string
 } {
-  const pressoes = grupo.map(d => d.pressao);
+  const umidades = grupo.map(d => d.umidade);
   const inclinacoes = grupo.map(d => d.inclinacao);
 
-  const variacaoPressao = Math.max(...pressoes) - Math.min(...pressoes);
+  const variacaoumidade = Math.max(...umidades) - Math.min(...umidades);
   const variacaoInclinacao = Math.max(...inclinacoes) - Math.min(...inclinacoes);
 
-  const LIMIAR_PRESSAO_CUIDADO = 30;
-  const LIMIAR_PRESSAO_ALERTA = 60;
+  const LIMIAR_umidade_CUIDADO = 30;
+  const LIMIAR_umidade_ALERTA = 60;
 
   const LIMIAR_INCLINACAO_CUIDADO = 5;
   const LIMIAR_INCLINACAO_ALERTA = 12;
 
   let justificativas: string[] = [];
 
-  let nivelPressao: 'seguro' | 'cuidado' | 'alerta' =
-    variacaoPressao > LIMIAR_PRESSAO_ALERTA ? 'alerta' :
-    variacaoPressao > LIMIAR_PRESSAO_CUIDADO ? 'cuidado' :
+  let nivelumidade: 'seguro' | 'cuidado' | 'alerta' =
+    variacaoumidade > LIMIAR_umidade_ALERTA ? 'alerta' :
+    variacaoumidade > LIMIAR_umidade_CUIDADO ? 'cuidado' :
     'seguro';
 
   let nivelInclinacao: 'seguro' | 'cuidado' | 'alerta' =
@@ -151,8 +151,8 @@ function calcularFatorDeRisco(grupo: Data[]): {
     variacaoInclinacao > LIMIAR_INCLINACAO_CUIDADO ? 'cuidado' :
     'seguro';
 
-  if (nivelPressao !== 'seguro') {
-    justificativas.push(`variação de pressão foi ${variacaoPressao.toFixed(2)} Pa`);
+  if (nivelumidade !== 'seguro') {
+    justificativas.push(`variação de pressão foi ${variacaoumidade.toFixed(2)} Pa`);
   }
 
   if (nivelInclinacao !== 'seguro') {
@@ -160,8 +160,8 @@ function calcularFatorDeRisco(grupo: Data[]): {
   }
 
   let nivelFinal: 'seguro' | 'cuidado' | 'alerta' =
-    nivelPressao === 'alerta' || nivelInclinacao === 'alerta' ? 'alerta' :
-    nivelPressao === 'cuidado' || nivelInclinacao === 'cuidado' ? 'cuidado' :
+    nivelumidade === 'alerta' || nivelInclinacao === 'alerta' ? 'alerta' :
+    nivelumidade === 'cuidado' || nivelInclinacao === 'cuidado' ? 'cuidado' :
     'seguro';
 
   const justificativa =

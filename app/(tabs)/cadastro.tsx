@@ -22,7 +22,7 @@ export default function CadastroScreen() {
     const { data, addData } = useData();
 
     const [anotacoes, setAnotacoes] = useState<string>('');
-    const [pressao, setPressao] = useState('');
+    const [umidade, setumidade] = useState('');
     const [inclinacao, setInclinacao] = useState<number>();
 
     useEffect(() => {
@@ -47,11 +47,11 @@ export default function CadastroScreen() {
       }, [location]);
       
 
-    const handlePressaoChange = (valor: string) => {
+    const handleumidadeChange = (valor: string) => {
         let cleaned = valor.replace(',', '.')
         cleaned = cleaned.replace(/(\..*?)\./g, '$1')
         if (/^[-+]?\d*\.?\d*$/.test(cleaned)) {
-            setPressao(cleaned)
+            setumidade(cleaned)
         }
         setMsg({
             message: '',
@@ -60,12 +60,12 @@ export default function CadastroScreen() {
     }
 
     const cadastrarDados = () => {
-        if (!pressao) {
+        if (!umidade) {
             Haptics.notificationAsync(
                 Haptics.NotificationFeedbackType.Error
             )
             setMsg({
-                message: 'É necessário informar o valor da pressão do solo medida.',
+                message: 'É necessário informar o valor da umidade do solo medida.',
                 type: 'error'
             })
             return
@@ -79,7 +79,7 @@ export default function CadastroScreen() {
         }
 
         addData({
-            pressao: parseFloat(pressao),
+            umidade: parseFloat(umidade),
             anotacao: anotacoes,
             inclinacao: inclinacao,
             localizacao: location,
@@ -89,7 +89,7 @@ export default function CadastroScreen() {
             message: 'Dado cadastrado com sucesso!',
             type: 'success'
         })
-        setPressao('')
+        setumidade('')
         setAnotacoes('')
 
         setTimeout(() => {
@@ -112,7 +112,7 @@ export default function CadastroScreen() {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <SafeAreaView style={styles.mainContainer}>
                 <Section title='Cadastrar dados ambientais'>
-                    <ThemedTextInput value={pressao?.toString()} onChangeText={(text) => {handlePressaoChange(text)}} placeholder='Pressão em Pa' keyboardType='numeric' title='Pressão do solo'/>
+                    <ThemedTextInput value={umidade?.toString()} onChangeText={(text) => {handleumidadeChange(text)}} placeholder='Umidade do solo em g/m³' keyboardType='numeric' title='Umidade do solo'/>
                     <ThemedTextInput value={anotacoes} onChangeText={(text) => {setAnotacoes(text); setMsg({ message: '', type: 'success' })}} multiline numberOfLines={4} placeholder='Informações sobre a medição' title='Anotações da medição'/>
                     <Text style={styles.title}>Inclinação do solo</Text>
                     <YAxisIndicator atualizarInclinacao={setInclinacao}/>

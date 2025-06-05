@@ -1,5 +1,5 @@
 export type Data = {
-    pressao: number;
+    umidade: number;
     anotacao: string;
     timestamp: number
     inclinacao: number;

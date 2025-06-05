@@ -49,7 +49,7 @@ export default function MedicaoPage() {
                     <DataComponent title={"Data"} icon="Calendar" value={new Date(info.timestamp).toLocaleDateString('pt-BR')}/>
                     <DataComponent title={"Horário"} icon="Clock" value={new Date(info.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}/>
                     <DataComponent title={"Anotações"} icon="NotebookPen" value={info.anotacao}/>
-                    <DataComponent title={"Pressão"} icon="Weight" value={info.pressao + ' Pa'}/>
+                    <DataComponent title={"Umidade"} icon="Droplet" value={info.umidade + ' Pa'}/>
                     <DataComponent title={"Inclinação"} icon="TriangleRight" value={info.inclinacao + '°'}/>
                     <DataComponent title={"Localização"} icon="MapPinned" value={'Latitude: ' + info.localizacao.coords.latitude + '\nLongitude: ' + info.localizacao.coords.latitude}/>
                 </Section>
