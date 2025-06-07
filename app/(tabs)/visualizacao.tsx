@@ -43,7 +43,6 @@ export default function VisualizacaoScreen() {
         };
     };
 
-    // Estado para controlar itens expandidos - armazena índices dos riscos expandidos
     const [expandidoIds, setExpandidoIds] = useState<Record<number, boolean>>({});
 
     const toggleExpandido = (index: number) => {

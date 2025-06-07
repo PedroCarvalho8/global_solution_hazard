@@ -152,7 +152,7 @@ function calcularFatorDeRisco(grupo: Data[]): {
     'seguro';
 
   if (nivelumidade !== 'seguro') {
-    justificativas.push(`variação de pressão foi ${variacaoumidade.toFixed(2)} Pa`);
+    justificativas.push(`variação de umidade do solo foi ${variacaoumidade.toFixed(2)} g/m³`);
   }
 
   if (nivelInclinacao !== 'seguro') {
